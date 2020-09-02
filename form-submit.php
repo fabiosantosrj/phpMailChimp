@@ -1,6 +1,5 @@
- 
 <?php
-session_start();
+//session_start();
 if(isset($_POST['submit'])){
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
@@ -10,7 +9,7 @@ if(isset($_POST['submit'])){
         $apiKey = '2167e92dccdc45268eb811abb0e018dc-us17';
         $listID = '629cd7c4d6';
         
-        https://us17.api.mailchimp.com/3.0/lists/629cd7c4d6/members
+     //   https://us17.api.mailchimp.com/3.0/lists/629cd7c4d6/members
 
 
         // MailChimp API URL
@@ -45,7 +44,7 @@ if(isset($_POST['submit'])){
         
         // store the status message based on response code
         if ($httpCode == 200) {
-            $_SESSION['msg'] = '<p style="color: #34A853">You have successfully subscribed to CodexWorld.</p>';
+            echo '<p style="color: #34A853">You have successfully subscribed to CodexWorld.</p>';
         } else {
             switch ($httpCode) {
                 case 214:
@@ -55,11 +54,13 @@ if(isset($_POST['submit'])){
                     $msg = 'Some problem occurred, please try again.';
                     break;
             }
-            $_SESSION['msg'] = '<p style="color: #EA4335">'.$msg.'</p>';
+            echo '<p style="color: #EA4335">'.$msg.'</p>';
         }
     }else{
-        $_SESSION['msg'] = '<p style="color: #EA4335">Please enter valid email address.</p>';
+        echo '<p style="color: #EA4335">Please enter valid email address.</p>';
     }
 }
 // redirect to homepage
-header('location:index.php');
+//header('location:index.php');
+echo "OK"
+?>
